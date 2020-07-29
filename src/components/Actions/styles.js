@@ -20,6 +20,7 @@ export const Input = styled.input`
   max-width: 400px;
   width: 400px;
   margin-right: 8px;
+  padding: 0 5px 0;
 `;
 
 export const Button = styled.button`
@@ -30,5 +31,5 @@ export const Button = styled.button`
   border-radius: 8px;
   outline: none;
   border: none;
-  cursor: pointer;  
+  cursor: pointer;
 `;

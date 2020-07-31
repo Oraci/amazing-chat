@@ -1,32 +1,5 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: ${(props) => (props.send ? 'flex-end' : 'flex-start')};
-
-  ${(props) =>
-    props.send
-      ? css`
-           {
-            justify-content: flex-end;
-
-            ${Content} {
-              background-color: #fcf6c5;
-            }
-
-            ${Text} {
-              text-align: right;
-            }
-          }
-        `
-      : css`
-           {
-            justify-content: flex-start;
-          }
-        `}
-`;
-
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,6 +18,33 @@ export const Text = styled.p`
   font-size: 12px;
   letter-spacing: 0.01em;
   color: #bdbdbd;
+`;
+
+export const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: ${(props) => (props.isMine ? 'flex-end' : 'flex-start')};
+
+  ${(props) =>
+    props.isMine
+      ? css`
+           {
+            justify-content: flex-end;
+
+            ${Content} {
+              background-color: #fcf6c5;
+            }
+
+            ${Text} {
+              text-align: right;
+            }
+          }
+        `
+      : css`
+           {
+            justify-content: flex-start;
+          }
+        `}
 `;
 
 export const Msg = styled.p`

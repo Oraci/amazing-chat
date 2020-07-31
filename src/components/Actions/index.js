@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
-import { Container, Content, Input, Button } from './styles';
+import { Container, Form, Input, Button } from './styles';
 
-function Actions() {
+function Actions({ onSubmit }) {
+  const inputEl = useRef(null);
+
+  useEffect(() => {
+    inputEl.current.focus();
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const message = inputEl.current.value;
+
+    if (message) {
+      inputEl.current.value = '';
+      onSubmit(message);
+    }
+  };
+
   return (
     <Container>
-      <Content>
-        <Input />
+      <Form onSubmit={handleSubmit}>
+        <Input ref={inputEl} placeholder="Type your message here..." />
         <Button>Send</Button>
-      </Content>
+      </Form>
     </Container>
   );
 }

@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Container, Content, Text, Msg } from './styles';
 
-function Message({ send, message }) {
+function Message({ isMine, message, username }) {
   return (
-    <Container send={send}>
+    <Container isMine={isMine}>
       <Content>
-        {!send && <Text>Ninja</Text>}
+        {!isMine && <Text>{username}</Text>}
         <Msg>{message}</Msg>
         <Text>10 Mar 2018 10:10</Text>
       </Content>

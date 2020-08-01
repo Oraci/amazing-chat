@@ -1,8 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import useSocket from 'use-socket.io-client';
 import { useImmer } from 'use-immer';
-import Message from '../Message';
-import Actions from '../Actions';
+import { format } from 'date-fns';
+import MessageBox from '../MessageBox';
+import ActionBar from '../ActionBar';
 
 import {
   WrapperPage,
@@ -37,7 +38,9 @@ function Chat() {
     }
   };
 
-  const addMessage = (nick, message, timestamp) => {
+  const addMessage = (nick, message) => {
+    const timestamp = format(new Date(), 'dd MMM yyyy kk:mm');
+
     setMessages((draft) => {
       draft.push({ nick, message, timestamp });
     });
@@ -113,10 +116,11 @@ function Chat() {
                     msg.nick === 'warning' ? (
                       <Text key={index}>{msg.message}</Text>
                     ) : (
-                      <Message
+                      <MessageBox
                         key={index}
                         username={msg.nick}
                         message={msg.message}
+                        timestamp={msg.timestamp}
                         isMine={msg.nick === username}
                       />
                     )
@@ -127,7 +131,7 @@ function Chat() {
           )}
         </Container>
       </WrapperChat>
-      {username && <Actions onSubmit={handleSendMessage} />}
+      {username && <ActionBar onSubmit={handleSendMessage} />}
     </WrapperPage>
   );
 }

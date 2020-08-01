@@ -51,8 +51,8 @@ export const Input = styled.input`
 export const Button = styled.button`
   height: 40px;
   width: 70px;
-  background-color: #ff876d;
-  color: white;
+  background-color: ${({ theme }) => theme.chat.enterButton.backgroundColor};
+  color: ${({ theme }) => theme.chat.enterButton.color};
   border-radius: 8px;
   outline: none;
   border: none;
@@ -61,7 +61,7 @@ export const Button = styled.button`
 
 export const Text = styled.p`
   text-align: center;
-  color: #bdbdbd;
+  color: ${({ theme }) => theme.colorText};
   font-weight: bold;
 `;
 

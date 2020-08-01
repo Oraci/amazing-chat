@@ -4,7 +4,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 80%;
-  border: 1px solid #e0e0e0;
+  border: 1px solid ${({ theme }) => theme.messageBox.borderColor};
   justify-content: center;
   margin: 8px 24px 8px 24px;
   background-color: white;
@@ -17,7 +17,7 @@ export const Text = styled.p`
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.01em;
-  color: #bdbdbd;
+  color: ${({ theme }) => theme.colorText};
 `;
 
 export const Container = styled.div`
@@ -32,7 +32,8 @@ export const Container = styled.div`
             justify-content: flex-end;
 
             ${Content} {
-              background-color: #fcf6c5;
+              background-color: ${({ theme }) =>
+                theme.messageBox.backgroundColorMine};
             }
 
             ${Text} {

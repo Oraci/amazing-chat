@@ -1,1 +1,1 @@
-# doodle-chat
+# amazing-chat
